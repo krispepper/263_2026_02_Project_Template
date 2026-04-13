@@ -25,7 +25,7 @@ python -m venv venv
 .\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 
-#macOS / Linux
+# macOS / Linux
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
@@ -62,6 +62,6 @@ CREATE TABLE IF NOT EXISTS demo_scorelog (
 );
 ```
 
-With the table in place, you can start writing queries. Start with the queries
+With the tables in place, you can start writing queries. Start with the queries
 in `player_manager.py`, and test each one along the way by adding a menu option.
 If you get stuck on a query, you may refer to its answer in `example/`.
