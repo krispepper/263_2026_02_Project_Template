@@ -59,9 +59,28 @@ DELIMITER ;
 
 -- Insert sample data
 INSERT INTO demo_players (ID, Name, Color, Wins, Losses, Gold) VALUES
--- Add 25 sample player records here with:
--- - Unique IDs (P001-P025)
--- - Player names
--- - Colors (Red, Blue, Green, Yellow, Purple, Orange, Black, Pink)
--- - Wins, Losses, and Gold values
-('P001', 'Sample Name 1', 'Red', 15, 8, 450);
+('P001', 'James Anderson', 'Red', 15, 8, 450),
+('P002', 'Emily Roberts', 'Blue', 12, 10, 380),
+('P003', 'Michael Thompson', 'Green', 20, 5, 600),
+('P004', 'Sarah Wilson', 'Yellow', 8, 15, 250),
+('P005', 'David Martinez', 'Purple', 25, 3, 750),
+('P006', 'Jessica Taylor', 'Orange', 18, 7, 520),
+('P007', 'Christopher Davis', 'Black', 10, 12, 310),
+('P008', 'Amanda White', 'Pink', 22, 4, 680),
+('P009', 'Daniel Harris', 'Red', 14, 9, 420),
+('P010', 'Jennifer Clark', 'Blue', 16, 6, 490),
+('P011', 'Matthew Lewis', 'Green', 9, 14, 280),
+('P012', 'Ashley Walker', 'Yellow', 28, 2, 850),
+('P013', 'Andrew Hall', 'Purple', 11, 11, 340),
+('P014', 'Stephanie Young', 'Orange', 19, 8, 560),
+('P015', 'Joshua King', 'Black', 23, 5, 710),
+('P016', 'Michelle Wright', 'Pink', 7, 16, 220),
+('P017', 'Ryan Scott', 'Red', 17, 7, 500),
+('P018', 'Kimberly Torres', 'Blue', 13, 10, 390),
+('P019', 'Brandon Nguyen', 'Green', 21, 4, 640),
+('P020', 'Laura Hill', 'Yellow', 6, 17, 190),
+('P021', 'Justin Flores', 'Purple', 24, 6, 730),
+('P022', 'Samantha Green', 'Orange', 5, 18, 160),
+('P023', 'Kevin Adams', 'Black', 26, 3, 800),
+('P024', 'Rachel Nelson', 'Pink', 12, 9, 370),
+('P025', 'Brian Carter', 'Green', 30, 1, 900);
