@@ -16,30 +16,28 @@ The repository is split into two different directories:
 The queries to be completed for the exercise live in `template/queries.sql`
 
 To get started, clone this repo to the compsci server.
-Then navigate to the example folder (and in VS code, open the example folder). 
+If you are using VS code, open the 263_2026_02_Project_Template folder.
 Finally, create a virtual environment, activate it, and install the
 required libraries:
 
 ```bash
 # Windows
-pwd # verify you are in the example folder. If not: cd example
 python -m venv venv
 .\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 
 # macOS / Linux
-pwd # verify you are in the example folder. If not: cd example
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
 
 After setting up the environment, edit the database connection credentials in 
-`template/app.py` to reflect your own (lines 18-24). You will only need to change
+`template/app.py` and `example/app.py` to reflect your own (lines 18-24). You will only need to change
 your username (match your compsci server username), and your database (match your
 database name). Password will still be left blank.
 
-Test your database connection by running `template/app.py`. If the connection does
+Test your database connection by running `template/app.py` or `example/app.py`. If the connection does
 not work, an error will be thrown. Otherwise, the connection was established and closed.
 
 Once done, create the demo_players table in your database:
