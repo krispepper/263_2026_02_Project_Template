@@ -42,6 +42,7 @@ not work, an error will be thrown. Otherwise, the connection was established and
 Once done, create the demo_players table in your database:
 
 ```sql
+use yourdatabasename; # replace yourdatabasename with your own database, not your project's
 CREATE TABLE demo_players (
     ID varchar(20) PRIMARY KEY,
     Name varchar(100),
