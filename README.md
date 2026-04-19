@@ -15,17 +15,20 @@ The repository is split into two different directories:
 
 The queries to be completed for the exercise live in `template/queries.sql`
 
-To get started, clone this repo to the compsci server,
-create a virtual environment, activate it, and install the
+To get started, clone this repo to the compsci server.
+Then navigate to the example folder (and in VS code, open the example folder). 
+Finally, create a virtual environment, activate it, and install the
 required libraries:
 
 ```bash
 # Windows
+pwd # verify you are in the example folder. If not: cd example
 python -m venv venv
 .\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 
 # macOS / Linux
+pwd # verify you are in the example folder. If not: cd example
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
