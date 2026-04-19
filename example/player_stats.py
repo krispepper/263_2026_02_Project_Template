@@ -1,3 +1,31 @@
+# author: Nikolaos Komninos 
+# date: 4/19/2026
+# Purpose: present a menu to list queries 
+# Changes by Kris Pepper
+
+def player_stats_menu(conn):
+    print("\n--- Player Reports ---")
+    print("1. Player Statistics (Stored Procedure)")
+    print("2. Players Grouped by Wins (GROUP BY)")
+    print("3. Players with Gold Above Average (Sub-query)")
+    print("4. High-Winning Players (HAVING)")
+    print("5. All Players with Stats (LEFT OUTER JOIN)")
+
+    subchoice = input("Enter your choice (1-5): ").strip()
+
+    match subchoice:
+        case "1":
+            query_player_stats(conn)
+        case "2":
+            query_players_by_wins(conn)
+        case "3":
+            query_players_by_gold(conn)
+        case "4":
+            query_top_players(conn)
+        case "5":
+            query_all_players_with_stats(conn)
+        case _:
+            print("Invalid choice. Please try again.")
 def query_player_stats(conn):
     """Query player statistics using GetPlayerStats stored procedure.
 
@@ -8,9 +36,22 @@ def query_player_stats(conn):
     print("\n--- Player Statistics ---")
 
     cur.callproc("GetPlayerStats")
-
+    
     for result in cur.stored_results():
-        stats = result.fetchone()
+        raw_stats = result.fetchone()
+        # if the stats came through as a tuple instead of a dict, 
+        #   turn them into a dict
+        # Debug: Check if it's still a tuple 
+        print(f"DEBUG: Type is {type(raw_stats)}, Value: {raw_stats}")
+
+        if raw_stats:
+            # If it's a tuple, map it to the column names manually
+            if isinstance(raw_stats, tuple):
+                column_names = [i[0] for i in result.description]
+                stats = dict(zip(column_names, raw_stats))
+            else:
+                stats = raw_stats
+        
         print(f"\nTotal Players: {stats['TotalPlayers']}")
         print(f"Total Wins: {stats['TotalWins']}")
         print(f"Total Losses: {stats['TotalLosses']}")
@@ -32,7 +73,7 @@ def query_players_by_wins(conn):
     cur.execute("""
         SELECT ID, Name, Wins, Losses, (Wins + Losses) as TotalGames, Color
         FROM demo_players
-        GROUP BY Wins
+        GROUP BY Wins, ID, Name
         ORDER BY Wins DESC
     """)
 

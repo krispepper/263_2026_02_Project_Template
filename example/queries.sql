@@ -1,3 +1,5 @@
+-- queries to run to create the database for the example to run
+
 -- Create the demo_players table
 CREATE TABLE demo_players (
     ID varchar(20) PRIMARY KEY,

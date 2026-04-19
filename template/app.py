@@ -1,17 +1,25 @@
+# author: Nikolaos Komninos 
+# date: 4/19/2026
+# Purpose: 263 application to work with game DB
+#          connect to SQL 
+#          manage main menu
+# Changes by Kris Pepper
+
 import mysql.connector
+
+# everyone in the project shares app.py, 
+#  but everyone should have their own 2 files: 
+#    module to manage their table
+#    module to run their queries
+
+# module to manage a table
 from player_manager import (
-    add_player,
-    change_player,
-    delete_player,
-    list_players,
-    update_player_score,
+    player_manager_menu 
 )
+
+#module to run queries
 from player_stats import (
-    query_player_stats,
-    additional_query_1,
-    additional_query_2,
-    additional_query_3,
-    additional_query_4,
+    player_stats_menu
 )
 
 # Establish connection to database (edit accordingly)
@@ -23,38 +31,26 @@ conn = mysql.connector.connect(
     database="pepper",
 )
 
-
 def main():
-    """Main program loop with menu system."""
     while True:
-        # Print menu header
-        # Print all menu options:
+        print("\n=== Main Menu ===")
+        print("1. Maintain Player")
+        print("2. Player Reports")
+        print("3. Exit")
 
-        # 1. Maintain Player
-        #   1. Add Player
-        #   2. Change Player
-        #   3. Delete Player
-        #   4. List Players
-        #   5. Update Player Score (Stored Procedure)
+        choice = input("Enter your choice (1-3): ").strip()
 
-        # 2. Player Reports
-        #   1. Player Statistics (Stored Procedure)
-        #   2. Additional Query 1 (GROUP BY)
-        #   3. Additional Query 2 (Subquery)
-        #   4. Additional Query 3 (HAVING)
-        #   5. Additional Query 4 (LEFT OUTER JOIN)
+        match choice:
+            case "1":
+                player_manager_menu(conn)
+            case "2":
+                player_stats_menu(conn)
+            case "3":
+                print("Goodbye!")
+                break
+            case _:
+                print("Invalid choice. Please try again.")
 
-        # 3. Exit
-
-        # Prompt user for choice
-
-        # Use match-case statement to handle menu options:
-        # - For each option, call corresponding function with conn
-        # - For option 3, print goodbye and break from loop
-        # - Use case _ to handle invalid choices
-        break
-
-    # Close the database connection
     conn.close()
 
 

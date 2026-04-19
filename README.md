@@ -13,7 +13,7 @@ The repository is split into two different directories:
 - `template/` contains the template to be used by the exercise
 - `example/` contains the answers to the exercise
 
-The queries to be completed for the exercise live in `template/queries.sql`
+The queries to be completed for the exercise live in `example/queries.sql`
 
 To get started, clone this repo to the compsci server.
 If you are using VS code, open the 263_2026_02_Project_Template folder.
@@ -40,28 +40,12 @@ database name). Password will still be left blank.
 Test your database connection by running `template/app.py`. If the connection does
 not work, an error will be thrown. Otherwise, the connection was established and closed.
 
-Once done, create the demo_players table in your database:
-
-```sql
-use yourdatabasename; # replace yourdatabasename with your own database, not your project's
-CREATE TABLE demo_players (
-    ID varchar(20) PRIMARY KEY,
-    Name varchar(100),
-    Color varchar(50),
-    Wins int,
-    Losses int,
-    Gold int
-);
-
-CREATE TABLE IF NOT EXISTS demo_scorelog (
-    LogID INT AUTO_INCREMENT PRIMARY KEY,
-    LogDate DATE,
-    PlayerID varchar(20),
-    PlayerName varchar(100),
-    Wins INT,
-    Losses INT,
-    Gold INT
-);
+Once done, create the demo_players table in your database by running the example/queries.sql in your own database. 
+Remember to first run :
+   use yourdatabasename; # replace yourdatabasename with your own database, not your project's
+Then run example/queries
+ 
+It will create tables and stored procedures and insert this data:
 
 INSERT INTO demo_players (ID, Name, Color, Wins, Losses, Gold) VALUES
 ('P001', 'James Anderson', 'Red', 15, 8, 450),
@@ -89,7 +73,7 @@ INSERT INTO demo_players (ID, Name, Color, Wins, Losses, Gold) VALUES
 ('P023', 'Kevin Adams', 'Black', 26, 3, 800),
 ('P024', 'Rachel Nelson', 'Pink', 12, 9, 370),
 ('P025', 'Brian Carter', 'Green', 30, 1, 900);
-```
+
 
 With the tables in place, you can now test the example. 
 First change the database to your database in `example/app.py`, just as you did to `template/app.py`. 

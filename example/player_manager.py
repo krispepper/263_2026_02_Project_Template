@@ -1,3 +1,33 @@
+# author: Nikolaos Komninos 
+# date: 4/19/2026
+# Purpose: present a menu to manage a table 
+#     add/update/delete/list the table
+# Changes by Kris Pepper
+
+def player_manager_menu(conn):
+    print("\n--- Maintain Player ---")
+    print("1. Add Player")
+    print("2. Change Player")
+    print("3. Delete Player")
+    print("4. List Players")
+    print("5. Update Player Score (Stored Procedure)")
+
+    subchoice = input("Enter your choice (1-5): ").strip()
+
+    match subchoice:
+        case "1":
+            add_player(conn)
+        case "2":
+            change_player(conn)
+        case "3":
+            delete_player(conn)
+        case "4":
+            list_players(conn)
+        case "5":
+            update_player_score(conn)
+        case _:
+            print("Invalid choice. Please try again.")
+
 def add_player(conn):
     """Add a new player to the database.
 
