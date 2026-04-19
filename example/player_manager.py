@@ -48,7 +48,11 @@ def add_player(conn):
         (player_id, name, color, wins, losses, gold),
     )
     conn.commit()
-    print(f"Player {name} added successfully!")
+    print ('rows inserted: ', cur.rowcount)
+    if cur.rowcount == 1:
+        print(f"Player {name} added successfully!")
+    else:
+        print('An error occurred adding the player') 
     cur.close()
 
 
@@ -101,7 +105,11 @@ def change_player(conn):
         (new_value, player_id),
     )
     conn.commit()
-    print("Player updated successfully!")
+    print ('rows updated: ', cur.rowcount)
+    if cur.rowcount == 1:
+        print(f"Player {field_name} updated successfully!")
+    else:
+        print('An error occurred updating the player') 
     cur.close()
 
 
@@ -117,7 +125,11 @@ def delete_player(conn):
 
     cur.execute("DELETE FROM demo_players WHERE ID = %s", (player_id,))
     conn.commit()
-    print(f"Player {player_id} deleted!")
+    print ('rows updated: ', cur.rowcount)
+    if cur.rowcount == 1:
+        print(f"Player {player_id} deleted!")
+    else:
+        print('An error occurred updating the player') 
     cur.close()
 
 
