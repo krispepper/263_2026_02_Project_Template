@@ -44,7 +44,7 @@ def add_player(conn):
     #  You will prompt the user for the values you need to insert
     # Write INSERT query to add a new record
     # Commit the transaction
-    # Print success message
+    # Check for success and Print success message
     # Close the cursor
     pass
 
@@ -72,7 +72,7 @@ def change_player(conn):
     # Prompt user for new value for selected field
     # Write UPDATE query to modify only that field
     # Commit the transaction
-    # Print success message
+    # Check for success and Print success message
     # Close the cursor
     pass
 
@@ -87,7 +87,7 @@ def delete_player(conn):
     # Prompt user for Player ID to delete
     # Write DELETE query to remove the player
     # Commit the transaction
-    # Print deletion message
+    # Check for success and Print deletion message
     # Close the cursor
     pass
 
