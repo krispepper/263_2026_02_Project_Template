@@ -17,9 +17,9 @@ from player_stats import (
 conn = mysql.connector.connect(
     host="127.0.0.1",
     port=3306,
-    user="nikolaoskomninos",
+    user="pepper",
     password="",
-    database="nikolaoskomninos",
+    database="pepper",
 )
 
 
