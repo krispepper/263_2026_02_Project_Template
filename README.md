@@ -33,11 +33,11 @@ pip install -r requirements.txt
 ```
 
 After setting up the environment, edit the database connection credentials in 
-`template/app.py` and `example/app.py` to reflect your own (lines 18-24). You will only need to change
+`template/app.py` to reflect your own (lines 18-24). You will only need to change
 your username (match your compsci server username), and your database (match your
 database name). Password will still be left blank.
 
-Test your database connection by running `template/app.py` or `example/app.py`. If the connection does
+Test your database connection by running `template/app.py`. If the connection does
 not work, an error will be thrown. Otherwise, the connection was established and closed.
 
 Once done, create the demo_players table in your database:
@@ -91,6 +91,15 @@ INSERT INTO demo_players (ID, Name, Color, Wins, Losses, Gold) VALUES
 ('P025', 'Brian Carter', 'Green', 30, 1, 900);
 ```
 
-With the tables in place, you can start writing queries. Start with the queries
-in `player_manager.py`, and test each one along the way by adding a menu option.
-If you get stuck on a query, you may refer to its answer in `example/`.
+With the tables in place, you can now test the example. 
+First change the database to your database in `example/app.py`, just as you did to `template/app.py`. 
+Then run `example/app.py` to see how it works with the sample data. 
+
+Now you are ready to use the template. 
+One group member will copy the 5 files inside template into your own project folder, which you made by cloning your project repository. 
+That group member will change app.py to use the project database and their own username, and then commit and push.
+Then every other group member will pull down the updated repository and change the app.py to their own username.
+
+Now each group member will start coding their own queries. 
+Each group member will make a file similar to player_manager to manage their own table, and update app.py to import and use their new file.  
+If you get stuck on a query, you may refer to the example query in `example/`.
