@@ -10,7 +10,8 @@ def player_manager_menu(conn):
     print("2. Change Player")
     print("3. Delete Player")
     print("4. List Players")
-    print("5. Update Player Score (Stored Procedure)")
+    print("5. Update Player Score (Stored Procedure)")  
+    print("6. Change Player in a simpler way")
 
     subchoice = input("Enter your choice (1-5): ").strip()
 
@@ -25,6 +26,8 @@ def player_manager_menu(conn):
             list_players(conn)
         case "5":
             update_player_score(conn)
+        case "6":
+            change_player_simpler(conn)
         case _:
             print("Invalid choice. Please try again.")
 
@@ -112,6 +115,31 @@ def change_player(conn):
         print('An error occurred updating the player') 
     cur.close()
 
+def change_player_simpler(conn):
+    """Update player information in the database as simply as possible.
+       Args:
+        conn: Active MySQL database connection
+    """
+    # Create a cursor 
+    cur = conn.cursor(dictionary=True)
+    #Prompt user for Player ID to change
+    player_id = input("Enter Player ID to be changed: ")
+    new_value = input("Enter color to change: ")
+    # Execute an SQL UPDATE query to modify only that field
+    cur.execute(
+        f"UPDATE demo_players SET color = %s WHERE ID = %s",
+        (new_value, player_id),
+    )
+    # Commit the transaction
+    conn.commit()
+    # Check for success and Print success message
+    print ('rows updated: ', cur.rowcount)
+    if cur.rowcount == 1:
+        print(f"Player color updated successfully!")
+    else:
+        print('An error occurred updating the player') 
+    # Close the transaction
+    cur.close()
 
 def delete_player(conn):
     """Delete a player from the database.
