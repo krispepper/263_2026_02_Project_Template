@@ -11,7 +11,7 @@ def player_manager_menu(conn):
     print("3. Delete Player")
     print("4. List Players")
     print("5. Update Player Score (Stored Procedure)")  
-    print("6. Change Player in a simpler way")
+    print("6. Change Player in a more complex and flexible way")
 
     subchoice = input("Enter your choice (1-5): ").strip()
 
@@ -27,7 +27,7 @@ def player_manager_menu(conn):
         case "5":
             update_player_score(conn)
         case "6":
-            change_player_simpler(conn)
+            change_player_complex(conn)
         case _:
             print("Invalid choice. Please try again.")
 
@@ -59,7 +59,7 @@ def add_player(conn):
     cur.close()
 
 
-def change_player(conn):
+def change_player_complex(conn):
     """Update player information in the database.
 
     Args:
@@ -115,7 +115,7 @@ def change_player(conn):
         print('An error occurred updating the player') 
     cur.close()
 
-def change_player_simpler(conn):
+def change_player(conn):
     """Update player information in the database as simply as possible.
        Args:
         conn: Active MySQL database connection
