@@ -153,11 +153,11 @@ def delete_player(conn):
 
     cur.execute("DELETE FROM demo_players WHERE ID = %s", (player_id,))
     conn.commit()
-    print ('rows updated: ', cur.rowcount)
+    print ('rows deleted: ', cur.rowcount)
     if cur.rowcount == 1:
         print(f"Player {player_id} deleted!")
     else:
-        print('An error occurred updating the player') 
+        print('An error occurred deleting the player') 
     cur.close()
 
 
@@ -202,5 +202,9 @@ def update_player_score(conn):
 
     cur.callproc("UpdatePlayerScore", (player_id, new_wins))
     conn.commit()
-    print(f"Player score updated to {new_wins} wins!")
+    print ('rows updated: ', cur.rowcount)
+    if cur.rowcount == 1:
+        print(f"Player {player_id} updated with wins of {new_wins} !")
+    else:
+        print('An error occurred updating the player') 
     cur.close()
