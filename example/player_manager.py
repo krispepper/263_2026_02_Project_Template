@@ -199,11 +199,11 @@ def update_player_score(conn):
     print("\n--- Update Player Score (Stored Procedure) ---")
     player_id = input("Enter Player ID: ")
     new_wins = input("Enter new number of wins: ")
-    number_changed = 0
-    cur.callproc("UpdatePlayerScore", (player_id, new_wins, number_changed))
+ 
+    cur.callproc("UpdatePlayerScore", (player_id, new_wins ))
     conn.commit()
-    print ('rows updated: ', number_changed)
-    if number_changed == 1:
+    print ('rows updated: ',  cur.rowcount)
+    if  cur.rowcount == 1:
         print(f"Player {player_id} updated with wins of {new_wins} !")
     else:
         print('An error occurred updating the player') 
