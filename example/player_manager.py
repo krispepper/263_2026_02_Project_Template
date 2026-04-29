@@ -199,8 +199,8 @@ def update_player_score(conn):
     print("\n--- Update Player Score (Stored Procedure) ---")
     player_id = input("Enter Player ID: ")
     new_wins = input("Enter new number of wins: ")
- 
-    cur.callproc("UpdatePlayerScore", (player_id, new_wins ))
+    number_changed = 0 
+    cur.callproc("UpdatePlayerScore", (player_id, new_wins, number_changed ))
     conn.commit()
     print ('rows updated: ',  cur.rowcount)
     if  cur.rowcount == 1:
